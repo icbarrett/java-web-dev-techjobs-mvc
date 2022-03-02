@@ -29,7 +29,7 @@ public class SearchController {
                                        @RequestParam String searchType,
                                        @RequestParam String searchTerm) {
         ArrayList<Job> jobs;
-        if(searchType.equals("all") || searchTerm.equals(null)) {
+        if(searchType.equals("all") && searchTerm.equals(null)) {
             jobs = JobData.findAll();
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
